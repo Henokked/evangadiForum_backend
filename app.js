@@ -6,7 +6,7 @@ import answerRoute from "./routes/answerRoute.js";
 import { dbConn } from "./db/dbConfig.js";
 
 const app = express();
-
+const port = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,9 +18,9 @@ app.use("/api/answers", answerRoute);
 async function start() {
   try {
     const result = await dbConn.query("select 'trident' ");
-    app.listen(5000);
+    app.listen(port);
     console.log("database connection established");
-    console.log("Server is running on port 5000");
+    console.log("Server is running on port", port);
   } catch (error) {
     console.error(error.message);
   }
