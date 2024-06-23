@@ -5,8 +5,8 @@ dotenv.config();
 export const dbConnection = mysql2.createPool({
   user: process.env.USER,
   database: process.env.DATABASE,
-  host: "evangadi-henok0ed-evangadi.k.aivencloud.com",
-  password: `AVNS_jjeitJUVukm1G2iSYka`,
+  host: process.env.HOST,
+  password: process.env.PASSWORD,
   connectionLimit: 10,
   port: 10022,
 });
