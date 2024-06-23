@@ -17,7 +17,9 @@ app.use("/api/answers", answerRoute);
 
 async function start() {
   try {
-    const result = await dbConn.query("select 'trident' ");
+    // const result = await dbConn.query(
+    //   "CREATE TABLE answers (answerid INT NOT NULL AUTO_INCREMENT, userid INT(20) NOT NULL, questionid VARCHAR(100) NOT NULL, answer VARCHAR(200) NOT NULL, PRIMARY KEY(answerid), FOREIGN KEY(questionid) REFERENCES questions(questionid), FOREIGN KEY(userid) REFERENCES users(userid));"
+    // );
     app.listen(port);
     console.log("database connection established");
     console.log("Server is running on port", port);

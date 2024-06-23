@@ -41,7 +41,9 @@ export const postQuestion = async (req, res) => {
 };
 
 export const getQuestions = async (req, res) => {
-  const [questions] = await dbConn.query("SELECT * FROM questions");
+  const [questions] = await dbConn.query(
+    "SELECT * FROM questions JOIN answers on questions.questionid = answers.questionid"
+  );
   questions.sort((a, b) => b.id - a.id);
   res.send(questions);
 };

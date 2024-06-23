@@ -38,7 +38,7 @@ export const getAnswers = async (req, res) => {
 
   const [answers] = await dbConn.query(
     "SELECT * FROM answers WHERE questionid = ?",
-    [req.params.questionId]
+    [question[0].questionid]
   );
 
   answers.sort((a, b) => b.answerid - a.answerid);
